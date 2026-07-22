@@ -3,8 +3,13 @@
 Um aplicativo simples para desktop inspirado nos brinquedos Tamagotchi, onde você precisa manter uma pequena planta virtual viva. Este projeto foi desenvolvido com HTML, CSS, JavaScript e Electron.
 
 <div align="center">
-    <img alt="Demonstração" src="assets/Demo.mp4" width="450">
+    <video src="https://github.com/user-attachments/assets/3bcede11-a05b-49d8-86f0-567ec83137b5" controls width="100%"/>
+    
 </div>
+
+
+
+
 
 ## Funcionalidades
 - **Mecânica de nível de água** 💧  
