@@ -11,7 +11,6 @@ closeBtn.addEventListener("click", () =>
 );
 
 
-// -- Configuration --
 const drain_amount = 0.1; 
 const drain_interval = 1000; 
 const water_cooldown = 10000; 
@@ -44,29 +43,24 @@ function updateUI() {
     bar.style.color = filled ? "#8FC98A" : "#C2E0B8";
   });
 
-  // update mood
   if (water_level > 74) {
-    // thriving (75-100%)
     plant_icon.src = "assets/leafy-stem-plant/leafy-stem-thriving.gif";
     mood_tag.textContent = "Relaxando";
     care_reminder.textContent = "- Tudo beleza, só de boa -";
     restart_btn.style.display = "none";
     water_btn.style.display = "flex";
-    // okay (40-74%)
   } else if (water_level > 39) {
     plant_icon.src = "assets/leafy-stem-plant/leafy-stem-okay.gif";
     mood_tag.textContent = "Okay";
     care_reminder.textContent = "- Tudo bem, sem preocupações -";
     restart_btn.style.display = "none";
     water_btn.style.display = "flex";
-    // thirsty (1-39%)
   } else if (water_level > 0) {
     plant_icon.src = "assets/leafy-stem-plant/leafy-stem-thirsty.gif";
     mood_tag.textContent = "Sede";
     care_reminder.textContent = "- To seco chefe, me ajuda -";
     restart_btn.style.display = "none";
     water_btn.style.display = "flex";
-    // wilted (0%)
   } else {
     plant_icon.src = "assets/leafy-stem-plant/leafy-stem-wilted.gif";
     mood_tag.textContent = "Murcha";
@@ -76,7 +70,6 @@ function updateUI() {
   }
 }
 
-// -- Drain loop --
 setInterval(() => {
   if (water_level > 0) {
     water_level = Math.max(0, water_level - drain_amount);
@@ -84,14 +77,12 @@ setInterval(() => {
   }
 }, drain_interval);
 
-// -- Water button --
 water_btn.addEventListener("click", () => {
   if (water_on_cooldown) return;
 
   som = new Audio("assets/sounds/water-sound.mp3");
   som.play()
 
-  water_level = Math.min(100, water_level + 25); // Refill per use = +25%
   updateUI();
 
   water_on_cooldown = true;
